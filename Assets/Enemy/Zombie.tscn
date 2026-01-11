@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ugwk3cbmoi2n"]
+
+[ext_resource type="Script" path="res://Assets/Enemy/Zombie.gd" id="1_uxj8o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vj3u6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_njlxv"]
+
+[node name="Zombie" type="CharacterBody3D"]
+script = ExtResource("1_uxj8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vj3u6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_njlxv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_max_distance = 100.01
+avoidance_enabled = true
+max_speed = 2.0

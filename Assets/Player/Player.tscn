@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cediswgqkrxr"]
+
+[ext_resource type="Script" path="res://Assets/Player/Gun.gd" id="1_ejw3k"]
+[ext_resource type="AudioStream" uid="uid://fg5nho7kbxqs" path="res://Assets/Sounds/gunshot.wav" id="1_pp57a"]
+[ext_resource type="Script" path="res://Assets/Player/Movement.gd" id="1_xhn6q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pev04"]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_xhn6q")
+
+[node name="GameCamera" type="Camera3D" parent="."]
+
+[node name="Gun" type="Node3D" parent="GameCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, -0.5)
+script = ExtResource("1_ejw3k")
+
+[node name="RayCast3D" type="RayCast3D" parent="GameCamera/Gun"]
+target_position = Vector3(0, 0, -100)
+collide_with_areas = true
+
+[node name="GunshotSound" type="AudioStreamPlayer3D" parent="GameCamera/Gun"]
+stream = ExtResource("1_pp57a")
+
+[node name="HitBox" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_pev04")

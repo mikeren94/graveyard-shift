@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bowxmxyugycbe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_omi5h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_41y1d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_10lva"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xwyaj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_54yku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_evbla"]
+
+[node name="Cubicle" type="Node3D"]
+
+[node name="SideWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("BoxMesh_omi5h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SideWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SideWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_41y1d")
+
+[node name="SideWall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2.5, 0, 0, 0, 0.1, 0, 0, -2)
+mesh = SubResource("BoxMesh_omi5h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SideWall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SideWall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_10lva")
+
+[node name="BackWall" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.96046e-08, 0, 0.1, 0, 2.5, 0, -2, 0, 0, -1, 0, -1)
+mesh = SubResource("BoxMesh_omi5h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BackWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BackWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_xwyaj")
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.55671e-08, 0, 0.7, 0, 0.8, 0, -1.5, 0, -3.0598e-08, 0, -0.761877, -1)
+mesh = SubResource("BoxMesh_54yku")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Desk"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk/StaticBody3D"]
+shape = SubResource("BoxShape3D_evbla")
