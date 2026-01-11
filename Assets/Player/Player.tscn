@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Assets/Player/Gun.gd" id="1_ejw3k"]
 [ext_resource type="AudioStream" uid="uid://fg5nho7kbxqs" path="res://Assets/Sounds/gunshot.wav" id="1_pp57a"]
-[ext_resource type="Script" path="res://Assets/Player/Movement.gd" id="1_xhn6q"]
+[ext_resource type="Script" path="res://Assets/Player/Player.gd" id="1_xhn6q"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pev04"]
 

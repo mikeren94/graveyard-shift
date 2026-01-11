@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kevok4kt2hus"]
+
+[node name="GameOver" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Game Over
+"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 27.0
+offset_right = 66.0
+offset_bottom = 58.0
+text = "Restart"

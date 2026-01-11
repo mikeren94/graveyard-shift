@@ -7,11 +7,15 @@ var recoil_srength := 2.0
 var recoil_recovery_speed := 10.0
 var recoil_current := 0
 var can_fire := true
+var player: CharacterBody3D
 
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
+	
 func shoot():
 	if not can_fire:
 		return
-
+	
 	can_fire = false
 	_fire()
 
@@ -33,6 +37,7 @@ func _fire():
 		var target = ray.get_collider()
 
 		if target.has_method("hit"):
+			player.show_hitmarker()
 			target.hit(damage)
 
 		print("Hit: ", target)

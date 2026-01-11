@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfpyypyalin0t"]
+[gd_scene load_steps=6 format=3 uid="uid://cfpyypyalin0t"]
 
 [ext_resource type="PackedScene" uid="uid://c5v1x7gq64q0q" path="res://Levels/Level.tscn" id="1_n5obl"]
 [ext_resource type="PackedScene" uid="uid://cediswgqkrxr" path="res://Assets/Player/Player.tscn" id="2_6qnc0"]
 [ext_resource type="PackedScene" uid="uid://ugwk3cbmoi2n" path="res://Assets/Enemy/Zombie.tscn" id="3_ex68u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixqyd"]
+bg_color = Color(0.717647, 0.109804, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2rb1"]
+bg_color = Color(0.505882, 0.780392, 0.517647, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -19,3 +25,45 @@ transform = Transform3D(-0.991229, 0.114912, 0.0652657, -1.35518e-08, -0.493866,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.88368, -13)
 
 [node name="Level" parent="." instance=ExtResource("1_n5obl")]
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerUI"]
+offset_right = 448.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ixqyd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k2rb1")
+
+[node name="Crosshair" type="Label" parent="PlayerUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "+"
+horizontal_alignment = 1
+
+[node name="Hitmarker" type="Label" parent="PlayerUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "X"
+horizontal_alignment = 1

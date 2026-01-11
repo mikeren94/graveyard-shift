@@ -3,7 +3,11 @@ extends CharacterBody3D
 @export var speed := 2.0
 @export var health := 30
 @export var gravity := 30.0
+@export var attack_range := 1.5
+@export var attack_damage := 10
+@export var attack_cooldown := 1.0
 
+var attack_timer := 0.0
 var player:CharacterBody3D = null
 var agent: NavigationAgent3D
 
@@ -14,9 +18,16 @@ func _ready() -> void:
 	agent = $NavigationAgent3D
 
 func _physics_process(delta):
+	attack_timer -= delta
 	if not player:
 		return
 
+	# Check distance to player
+	var dist = global_transform.origin.distance_to(player.global_transform.origin)
+	
+	if dist <= attack_range:
+		try_attack()
+		return # Don't move while attacking
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -45,3 +56,10 @@ func hit(damage):
 		
 func die():
 	queue_free()
+	
+func try_attack():
+	if attack_timer > 0:
+		return
+
+	attack_timer = attack_cooldown
+	player.take_damage(attack_damage, global_transform.origin)
