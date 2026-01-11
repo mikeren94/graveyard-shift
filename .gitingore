@@ -1,0 +1,20 @@
+# Godot-specific ignores
+.import/
+.godot/
+
+# Imported assets (Godot generates these automatically)
+*.import
+
+# Exported builds
+export/
+build/
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.tmp
