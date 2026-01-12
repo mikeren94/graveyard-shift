@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxx0qis1i071"]
+
+[ext_resource type="Script" path="res://Assets/Enemy/ZombieSpawner.gd" id="1_dvlph"]
+[ext_resource type="PackedScene" uid="uid://ugwk3cbmoi2n" path="res://Assets/Enemy/Zombie.tscn" id="2_544df"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xcn11"]
+
+[node name="EnemySpawner" type="Node3D"]
+script = ExtResource("1_dvlph")
+zombie_scene = ExtResource("2_544df")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xcn11")

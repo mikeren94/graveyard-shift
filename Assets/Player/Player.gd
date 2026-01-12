@@ -95,6 +95,9 @@ func _handle_movement(_delta):
 	move_and_slide()
 
 func take_damage(amount: int, attacker_position: Vector3) -> void:
+	# Play sound
+	if $PlayerHit:
+		$PlayerHit.play()
 	health -= amount
 	health_bar.value = health
 	

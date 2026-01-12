@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c5v1x7gq64q0q" path="res://Levels/Level.tscn" id="1_n5obl"]
 [ext_resource type="PackedScene" uid="uid://cediswgqkrxr" path="res://Assets/Player/Player.tscn" id="2_6qnc0"]
-[ext_resource type="PackedScene" uid="uid://ugwk3cbmoi2n" path="res://Assets/Enemy/Zombie.tscn" id="3_ex68u"]
+[ext_resource type="PackedScene" uid="uid://dxx0qis1i071" path="res://Assets/Enemy/EnemySpawner.tscn" id="3_geujl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ixqyd"]
 bg_color = Color(0.717647, 0.109804, 0.109804, 1)
@@ -20,9 +20,6 @@ transform = Transform3D(1, 0, 0, 0, -0.493866, 0.869538, 0, -0.869538, -0.493866
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.991229, 0.114912, 0.0652657, -1.35518e-08, -0.493866, 0.869538, 0.132153, 0.861912, 0.489534, 0, 13.5235, 17.1945)
-
-[node name="Zombie" parent="." instance=ExtResource("3_ex68u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.88368, -13)
 
 [node name="Level" parent="." instance=ExtResource("1_n5obl")]
 
@@ -67,3 +64,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "X"
 horizontal_alignment = 1
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_geujl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -5)

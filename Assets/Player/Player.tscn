@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cediswgqkrxr"]
+[gd_scene load_steps=6 format=3 uid="uid://cediswgqkrxr"]
 
 [ext_resource type="Script" path="res://Assets/Player/Gun.gd" id="1_ejw3k"]
 [ext_resource type="AudioStream" uid="uid://fg5nho7kbxqs" path="res://Assets/Sounds/gunshot.wav" id="1_pp57a"]
 [ext_resource type="Script" path="res://Assets/Player/Player.gd" id="1_xhn6q"]
+[ext_resource type="AudioStream" uid="uid://c5kefa6gb5v5u" path="res://Assets/Sounds/player_hit.wav" id="4_e2qq2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pev04"]
 
@@ -25,3 +26,6 @@ stream = ExtResource("1_pp57a")
 
 [node name="HitBox" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pev04")
+
+[node name="PlayerHit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_e2qq2")
