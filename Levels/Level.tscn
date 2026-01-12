@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5v1x7gq64q0q"]
+[gd_scene load_steps=6 format=3 uid="uid://c5v1x7gq64q0q"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_af678"]
-vertices = PackedVector3Array(-19.5, 0.5, -19.5, -19.5, 0.5, 19.5, 19.5, 0.5, 19.5, 19.5, 0.5, -19.5)
+vertices = PackedVector3Array(-8.75, 0.5, -8.75, -8.75, 0.5, 9, 9, 0.5, 9, 9, 0.5, -8.75)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2sa6h"]
@@ -9,13 +9,18 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_astwc"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_12pq3"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_prnam"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="Level" type="Node3D"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_af678")
 
 [node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_2sa6h")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
@@ -23,3 +28,43 @@ mesh = SubResource("PlaneMesh_2sa6h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_astwc")
+
+[node name="Wall" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 10)
+mesh = SubResource("BoxMesh_12pq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Wall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_prnam")
+
+[node name="Wall2" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, -10)
+mesh = SubResource("BoxMesh_12pq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Wall2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_prnam")
+
+[node name="Wall3" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1.90735e-06, 0, 1, 0, 5, 0, -20, 0, 2.98023e-08, 10, 2.5, 0)
+mesh = SubResource("BoxMesh_12pq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall3/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_prnam")
+
+[node name="Wall4" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1.90735e-06, 0, 1, 0, 5, 0, -20, 0, 2.98023e-08, -10, 2.5, 0)
+mesh = SubResource("BoxMesh_12pq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Wall4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall4/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_prnam")

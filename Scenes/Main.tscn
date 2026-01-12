@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfpyypyalin0t"]
+[gd_scene load_steps=8 format=3 uid="uid://cfpyypyalin0t"]
 
 [ext_resource type="PackedScene" uid="uid://c5v1x7gq64q0q" path="res://Levels/Level.tscn" id="1_n5obl"]
 [ext_resource type="PackedScene" uid="uid://cediswgqkrxr" path="res://Assets/Player/Player.tscn" id="2_6qnc0"]
@@ -9,6 +9,12 @@ bg_color = Color(0.717647, 0.109804, 0.109804, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2rb1"]
 bg_color = Color(0.505882, 0.780392, 0.517647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obtyx"]
+bg_color = Color(0, 0, 0, 0.446)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfyx4"]
+bg_color = Color(0, 0, 0, 0.4)
 
 [node name="Main" type="Node3D"]
 
@@ -65,5 +71,32 @@ theme_override_font_sizes/font_size = 24
 text = "X"
 horizontal_alignment = 1
 
+[node name="AmmoDisplay" type="Label" parent="PlayerUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_obtyx")
+horizontal_alignment = 2
+
+[node name="PromptReload" type="Label" parent="PlayerUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pfyx4")
+
 [node name="EnemySpawner" parent="." instance=ExtResource("3_geujl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 1, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73093, 2.67077, -0.964952)
